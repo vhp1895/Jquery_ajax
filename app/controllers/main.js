@@ -5,7 +5,7 @@ $(document).ready(function() {
     layDanhSachNguoiDung();
 
     function moiTaoBranch() {
-        
+        console.log('moi tao branch');
     }
 
     function getInput(title, btnTitle, btnID) {
