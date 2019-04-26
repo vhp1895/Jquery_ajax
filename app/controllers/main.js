@@ -21,6 +21,19 @@ $(document).ready(function() {
 
     $('body').delegate('.btnSua', 'click', function() {
         getInput("Sua nguoi dung", 'Cap Nhat', 'btnCapNhat');
+
+        var taiKhoan = $('this').data('taikhoan');
+        console.log(taiKhoan);
+        // var viTri = nguoiDungService.layViTriNguoiDung(taiKhoan);
+        // var danhSachNguoiDung = JSON.parse(localStorage.getItem('danhSachNguoiDung'));
+
+        var nguoiDung = nguoiDungService.layThongTinNguoiDung(taiKhoan);
+        console.log(nguoiDung);
+        $('#TaiKhoan').val(taiKhoan);
+        $('#MatKhau').val(nguoiDung.HoTen);
+        $('#Email').val(nguoiDung.Email)
+        $('#SoDienThoai').val(nguoiDung.SoDT)
+        $('#loaiNguoiDung').val(nguoiDung.MaLoaiNguoiDung);
     })
     
     $('body').delegate('#btnThem', 'click', function() {
@@ -76,7 +89,7 @@ $(document).ready(function() {
                 <td>${item.SoDT}</td>
                 <td>${item.TenLoaiNguoiDung}</td>
                 <td>
-                    <button class="btn btn-success btnSua" data-toggle="modal" data-target="#myModal">Sua</button>
+                    <button class="btn btn-success btnSua" data-taikhoan="${item.TaiKhoan}" data-toggle="modal" data-target="#myModal">Sua</button>
                     <button class="btn btn-danger btnXoa" data-taikhoan="${item.TaiKhoan}">Xoa</button>
                 </td>
             </tr>

@@ -36,6 +36,27 @@ function NguoiDungService() {
         })
     }
 
+    this.layViTriNguoiDung = function(taiKhoan) {
+        var danhSachNguoiDung = JSON.parse(localStorage.getItem('danhSachNguoiDung'));
+
+        // danhSachNguoiDung.map(function(item, index) {
+        //     if(item.TaiKhoan === taiKhoan) {
+        //         return index;
+        //     }
+        // })
+
+        return danhSachNguoiDung.findIndex(function(item) {
+            return item.TaiKhoan === taiKhoan;
+        })
+    }
+
+    this.layThongTinNguoiDung = function(taiKhoan) {
+        var danhSachNguoiDung = JSON.parse(localStorage.getItem('danhSachNguoiDung'));
+        return danhSachNguoiDung.find(function(item) {
+            return item.TaiKhoan === taiKhoan
+        })
+    }
+
     this.timKiemNguoiDung = function(chuoi) {
         var mangTimKiem = [];
         var dsnd = JSON.parse(localStorage.getItem('danhSachNguoiDung'));
@@ -47,5 +68,7 @@ function NguoiDungService() {
 
         return mangTimKiem;
     }
+
+
 }
 
