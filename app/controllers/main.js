@@ -4,6 +4,10 @@ $(document).ready(function() {
 
     layDanhSachNguoiDung();
 
+    function moiTaoBranch() {
+        
+    }
+
     function getInput(title, btnTitle, btnID) {
         $('.modal-title').html(title);
         var footer = 
